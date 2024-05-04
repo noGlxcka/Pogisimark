@@ -1,7 +1,7 @@
 -- List of whitelisted player names
 local whitelist = {
 ["mustafa98910"] = true,
-["Pogiko2@"] = true,
+["jherus0023"] = true,
 }
 
 -- Function to check if a player is whitelisted
