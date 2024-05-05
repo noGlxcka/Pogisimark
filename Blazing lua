@@ -1,6 +1,6 @@
 local whitelist = {
-    ["4893825447"] = true -- Input the USER ID 
-}
+    ["4893825447"]= true -- Input the USER ID 
+}   ["ID"]= true
 
 local function isWhitelisted(player)
     return whitelist[player.UserId] == true
