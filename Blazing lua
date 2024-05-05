@@ -1,5 +1,5 @@
 local whitelist = {
-    ["Roblox USER ID"] = true -- Input the USER ID 
+    ["4893825447"] = true -- Input the USER ID 
 }
 
 local function isWhitelisted(player)
