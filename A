@@ -1,0 +1,28 @@
+local whitelist = {
+    ["4893825447"] = true -- Input the USER ID 
+}
+
+local function isWhitelisted(player)
+    return whitelist[player.UserId] == true
+end
+
+local function executeScriptForWhitelistedPlayers()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ianasmite/Pogisimark/main/Blzon "))()
+end
+
+game.Players.PlayerAdded:Connect(function(player)
+    if not isWhitelisted(player) then
+        player:Kick("You are not whitelisted. Please buy the script!")
+        else
+        executeScriptForWhitelistedPlayers()
+    end
+end)
+
+-- Check existing players
+for _, player in ipairs(game.Players:GetPlayers()) do
+    if isWhitelisted(player) then
+        executeScriptForWhitelistedPlayers()
+    else
+        player:Kick("You are not whitelisted. Please buy the script!")
+    end
+end
