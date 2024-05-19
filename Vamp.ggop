@@ -1213,15 +1213,17 @@ local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", false, function(enable
     end
 end)
 
-local speedTextbox = ActualMiscs:AddTextbox("Speed", tostring(orbitSpeed), function(value)
+orbitToggle:Set(false)
+
+ActualMiscs:AddTextBox("Speed", tostring(orbitSpeed), function(value)
     orbitSpeed = tonumber(value) or orbitSpeed
 end)
 
-local distanceTextbox = ActualMiscs:AddTextbox("Distance", tostring(orbitDistance), function(value)
+ActualMiscs:AddTextBox("Distance", tostring(orbitDistance), function(value)
     orbitDistance = tonumber(value) or orbitDistance
 end)
 
-local heightTextbox = ActualMiscs:AddTextbox("Height", tostring(orbitHeight), function(value)
+ActualMiscs:AddTextBox("Height", tostring(orbitHeight), function(value)
     orbitHeight = tonumber(value) or orbitHeight
 end)
 
