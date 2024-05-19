@@ -98,6 +98,30 @@
 ░░░░░░▒▒░░░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░              ▒▒  ░░░░░░░░░░░░▒▒▒▒▒▒░░░░░░░░▒▒▓▓▒▒░░░░      ░░░░░░▒▒░░░░▒▒▓▓▓▓▓▓▓▓▒▒░░▒▒▒▒▒▒░░    ░░░░░░▒▒░░░░        ░░░░  ░░▒▒▒▒▓▓░░░░▒▒  ░░░░  
 ░░░░░░░░▒▒░░░░▒▒▒▒░░▒▒░░▒▒▒▒░░        ░░          ▒▒  ░░░░░░░░░░▒▒▒▒▒▒░░░░░░  ▒▒▓▓▒▒░░▒▒    ░░░░░░░░░░  ░░▒▒▒▒░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒  ░░░░░░  ░░▒▒▒▒░░        ░░░░  ▒▒▒▒▓▓░░░░░░  ░░  ░░
 ]]
+-- Create a ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Create a TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "MADE BY LYRIC"
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(1, -220, 0, 20)
+textLabel.AnchorPoint = Vector2.new(1, 0)
+textLabel.TextColor3 = Color3.fromRGB(255, 0, 0) -- Red color
+textLabel.Font = Enum.Font.SourceSansBold
+textLabel.TextSize = 18
+textLabel.BackgroundTransparency = 1
+textLabel.Parent = gui
+
+-- Glitching Animation
+while true do
+    wait(0.1)
+    textLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- White color
+    wait(0.1)
+    textLabel.TextColor3 = Color3.fromRGB(255, 0, 0) -- Red color
+end
+
 --[[TRYNNA SKIDD?? LOL U NIGGER CAN'T CODE 
 TRYNNA SKIDD?? LOL U NIGGER CAN'T CODE 
 TRYNNA SKIDD?? LOL U NIGGER CAN'T CODE 
