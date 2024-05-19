@@ -839,14 +839,18 @@ end))
         updateKey('namecallInstance')
     end
 do
+--MADE BY GLXCKDEV AND LYRIC/JAY/DIANA
+-- Initialize global settings
+getgenv().OrbitSettings = getgenv().OrbitSettings or {
+    Enable = false,
+    Speed = 5,
+    Distance = 5,
+    Height = 5,
+    ToggleKey = Enum.KeyCode.V
+}
 
-local orbitToggleKey = Enum.KeyCode.V
-local orbitDistance = 5
-local orbitSpeed = 5
-local orbitHeight = 5
 local targetPlayer = nil
 local isOrbiting = false
-local isToggleEnabled = false
 
 local function getNearestPlayer()
     local nearestDistance = math.huge
@@ -885,8 +889,8 @@ local function stopOrbit()
 end
 
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
-    if not gameProcessedEvent and input.KeyCode == orbitToggleKey then
-        if isToggleEnabled then
+    if not gameProcessedEvent and input.KeyCode == getgenv().OrbitSettings.ToggleKey then
+        if getgenv().OrbitSettings.Enable then
             if isOrbiting then
                 stopOrbit()
             else
@@ -906,8 +910,8 @@ game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
             local targetRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
 
             if humanoidRootPart and targetRootPart then
-                local targetPosition = targetRootPart.Position + Vector3.new(0, orbitHeight, 0)
-                local orbitPosition = targetPosition + Vector3.new(math.cos(tick() * orbitSpeed) * orbitDistance, 0, math.sin(tick() * orbitSpeed) * orbitDistance)
+                local targetPosition = targetRootPart.Position + Vector3.new(0, getgenv().OrbitSettings.Height, 0)
+                local orbitPosition = targetPosition + Vector3.new(math.cos(tick() * getgenv().OrbitSettings.Speed) * getgenv().OrbitSettings.Distance, 0, math.sin(tick() * getgenv().OrbitSettings.Speed) * getgenv().OrbitSettings.Distance)
 
                 humanoidRootPart.CFrame = CFrame.new(orbitPosition, targetPosition)
             end
@@ -1202,7 +1206,7 @@ game:GetService("CorePackages").Packages:Destroy()
 end
 
 local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", function(enabled)
-    isToggleEnabled = enabled
+    getgenv().OrbitSettings.Enable = enabled
     if enabled then
         startOrbit()
     else
@@ -1210,19 +1214,20 @@ local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", function(enabled)
     end
 end)
 
-orbitToggle:Set(false)
+orbitToggle:Set(getgenv().OrbitSettings.false)
 
-ActualMiscs:AddTextBox("Speed", tostring(orbitSpeed), function(value)
-    orbitSpeed = tonumber(value) or orbitSpeed
-end)
+ActualMiscs:AddTextBox("Speed", function(text)
+    getgenv().OrbitSettings.Speed = tonumber(text) or getgenv().OrbitSettings.Speed
+end, { placeholder = tostring(getgenv().OrbitSettings.Speed) })
 
-ActualMiscs:AddTextBox("Distance", tostring(orbitDistance), function(value)
-    orbitDistance = tonumber(value) or orbitDistance
-end)
+ActualMiscs:AddTextBox("Distance", function(text)
+    getgenv().OrbitSettings.Distance = tonumber(text) or getgenv().OrbitSettings.Distance
+end, { placeholder = tostring(getgenv().OrbitSettings.Distance) })
 
-ActualMiscs:AddTextBox("Height", tostring(orbitHeight), function(value)
-    orbitHeight = tonumber(value) or orbitHeight
-end)
+ActualMiscs:AddTextBox("Height", function(text)
+    getgenv().OrbitSettings.Height = tonumber(text) or getgenv().OrbitSettings.Height
+end, { placeholder = tostring(getgenv().OrbitSettings.Height) })
+
 
 local BypassFolder = Tib:AddFolder("Anti Cheat Bypass")
 BypassFolder:AddLabel("Anti Cheats")
