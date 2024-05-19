@@ -1203,6 +1203,28 @@ end)
 if getgenv().NoDelay == true then
 game:GetService("CorePackages").Packages:Destroy()
 end
+
+local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", false, function(enabled)
+    isToggleEnabled = enabled
+    if enabled then
+        startOrbit()
+    else
+        stopOrbit()
+    end
+end)
+
+local speedTextbox = ActualMiscs:AddTextbox("Speed", tostring(orbitSpeed), function(value)
+    orbitSpeed = tonumber(value) or orbitSpeed
+end)
+
+local distanceTextbox = ActualMiscs:AddTextbox("Distance", tostring(orbitDistance), function(value)
+    orbitDistance = tonumber(value) or orbitDistance
+end)
+
+local heightTextbox = ActualMiscs:AddTextbox("Height", tostring(orbitHeight), function(value)
+    orbitHeight = tonumber(value) or orbitHeight
+end)
+
 local BypassFolder = Tib:AddFolder("Anti Cheat Bypass")
 BypassFolder:AddLabel("Anti Cheats")
 local Bypass1 = BypassFolder:AddSwitch("Hood Custom Camlock Bypass", function(bool)
