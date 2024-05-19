@@ -161,7 +161,7 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 function SendNotification(text)
     Notification:Notify(
-        {Title = "Vamp.gg V1", Description = "By Vamp.gg (Lyrical) - "..text},
+        {Title = "Vamp.gg V1.5", Description = "By Vamp.gg (Lyrical) - "..text},
         {OutlineColor = Color3.fromRGB(255,165,0),Time = 3, Type = "image"},
         {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255,165,0)}
     )
@@ -839,7 +839,7 @@ end))
         updateKey('namecallInstance')
     end
 do
-	local Window = library:AddWindow("Vamp.gg V1", {
+	local Window = library:AddWindow("Vamp.gg V1.5", {
 		main_color = Color3.fromRGB(255,165,0),
 		min_size = Vector2.new(500, 600),
 		toggle_key = Enum.KeyCode.RightShift,
