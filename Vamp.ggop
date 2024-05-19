@@ -1017,7 +1017,9 @@ end)
 	do -- Elements
 	WsgCuh:AddLabel("FOV GUI IS SEPERATED, IF U WANT TO USE IT CLICK THE BUTTON")
 
-
+WsgCuh:AddButton("Execute",function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/noGlxcka/Pogisimark/main/Skidda.lua"))()
+end)
 		Tab:AddLabel("Configuration")
 
 	local Lenabled = Tab:AddSwitch("Enabled", function(bool)
