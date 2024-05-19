@@ -896,24 +896,21 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
     end
 end)
 
-local lastTime = tick()
-local currentAngle = 0
-
 game:GetService("RunService").Heartbeat:Connect(function(deltaTime)
     if isOrbiting and targetPlayer then
         local character = game.Players.LocalPlayer.Character
         local targetCharacter = targetPlayer.Character
 
         if character and character:FindFirstChild("HumanoidRootPart") and targetCharacter then
-            currentAngle = currentAngle + orbitSpeed * deltaTime
-            local xOffset = math.cos(currentAngle) * orbitDistance
-            local zOffset = math.sin(currentAngle) * orbitDistance
-
-            local targetPosition = targetCharacter.HumanoidRootPart.Position + Vector3.new(0, orbitHeight, 0)
-            local orbitPosition = Vector3.new(targetPosition.X + xOffset, targetPosition.Y, targetPosition.Z + zOffset)
-
             local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
-            humanoidRootPart.CFrame = CFrame.new(orbitPosition, targetPosition)
+            local targetRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
+
+            if humanoidRootPart and targetRootPart then
+                local targetPosition = targetRootPart.Position + Vector3.new(0, orbitHeight, 0)
+                local orbitPosition = targetPosition + Vector3.new(math.cos(tick() * orbitSpeed) * orbitDistance, 0, math.sin(tick() * orbitSpeed) * orbitDistance)
+
+                humanoidRootPart.CFrame = CFrame.new(orbitPosition, targetPosition)
+            end
         end
     end
 end)
@@ -925,11 +922,11 @@ end)
 		can_resize = true,
 	})
 
-	local Tab = Window:AddTab("Camera Lock")
+	local Tab = Window:AddTab("Camlock")
 	local WsgCuh = Window:AddTab("Silent Aim")
-	local Teb = Window:AddTab("Target Lock")
+	local Teb = Window:AddTab("Dot Lock")
 	local Tib = Window:AddTab("Miscs")
-	local Tub = Window:AddTab("Debugging")
+	local Tub = Window:AddTab("SOON!?")
 
 	do -- Elements
 	WsgCuh:AddLabel("Configuration")
@@ -1204,7 +1201,7 @@ if getgenv().NoDelay == true then
 game:GetService("CorePackages").Packages:Destroy()
 end
 
-local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", false, function(enabled)
+local orbitToggle = ActualMiscs:AddSwitch("Enable Orbit", function(enabled)
     isToggleEnabled = enabled
     if enabled then
         startOrbit()
