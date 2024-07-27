@@ -8,8 +8,8 @@ return {
         username = "CitizenKingKong"
     },
     ["GAR-2LJD-5KHE"] = {
-        user_id = 1234567,
-        username = "ExampleUser1"
+        user_id = 2202890988,
+        username = "CyanRedBlueLimeGamer"
     },
     ["GAR-3XYZ-8ABC"] = {
         user_id = 2345678,
